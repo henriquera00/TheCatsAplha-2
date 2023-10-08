@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0if00lsu6hjr"]
+
+[ext_resource type="Texture2D" uid="uid://drdk8eq13uffv" path="res://Tiles/objects.png" id="1_3bllm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caxrm"]
+texture = ExtResource("1_3bllm")
+0:5/size_in_atlas = Vector2i(3, 4)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, 18)
+0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:5/0/physics_layer_0/angular_velocity = 0.0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(11.875, -6.75, 12.125, 3.625, 9.75, 7.875, 4, 8, -0.125, 8, -8, 8, -11.75, 5.125, -11.5, 1.75, -11.75, -0.375, -11.625, -6.625)
+
+[sub_resource type="TileSet" id="TileSet_h11cg"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_caxrm")
+
+[node name="Trees" type="TileMap"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_h11cg")
+format = 2
+layer_0/y_sort_enabled = true
