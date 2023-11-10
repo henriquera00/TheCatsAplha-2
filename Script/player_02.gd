@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var state_machine
 var in_attack: bool = false
+var is_damage:bool = false
 @export_category("Variables")
 @export var speed: float = 80.0
 @export var accel: float = 0.8
@@ -36,6 +37,7 @@ func mover() -> void:
 		velocity.x = lerp(velocity.x, direction.normalized().x * speed, accel)
 		velocity.y = lerp(velocity.y, direction.normalized().y * speed, accel)
 		return
+	
 		
 	velocity.x = lerp(velocity.x, direction.normalized().x * speed, brake)
 	velocity.y = lerp(velocity.y, direction.normalized().y * speed, brake)
@@ -48,6 +50,9 @@ func attack() -> void:
 		in_attack = true
 
 func animated() -> void:
+	if is_damage:
+		state_machine.travel("Dead")
+		
 	if in_attack:
 		state_machine.travel("Attack")
 		set_physics_process(false)		
@@ -69,5 +74,9 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_attack_area_body_entered(body) -> void:
 	if body.is_in_group("Enemy"):
-		body.update_health(randi_range(1,5))
+		body.update_health()
+	pass # Replace with function body.
+
+
+func _on_spawn_timer_timeout():
 	pass # Replace with function body.

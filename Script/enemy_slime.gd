@@ -1,12 +1,18 @@
 extends CharacterBody2D
 class_name Slime
 
+var state_machine
 var player_ref = null
+var is_dead: bool = false
 
 @export_category("Objects")
 @export var texture: Sprite2D = null
 @export var animation: AnimationPlayer = null
+@export var animationtree: AnimationTree = null
 
+func _ready() -> void:
+	animationtree.active = true
+	state_machine = animationtree["parameters/playback"]
 
 func _on_detection_body_entered(body) -> void:
 	if body.is_in_group("Player"):
@@ -21,28 +27,37 @@ func _on_detection_body_exited(body):
 	
 	
 func _physics_process(delta: float)-> void:
+	
+	if is_dead:
+		return
+	
+	
+	
+	
 	animated()
 	if player_ref != null:
 		var direction : Vector2 = global_position.direction_to(player_ref.global_position) 
 		var distance : float = global_position.distance_to(player_ref.global_position)
 		
-		if distance < 2:
-			player_ref.is_dead = true
+		if direction != Vector2.ZERO:
+				animationtree["parameters/idle/blend_position"] = direction
+				animationtree["parameters/Run/blend_position"] = direction
 		
-		velocity = direction * 60
+		if distance < 15:
+			get_tree().reload_current_scene()
+		
+		velocity = direction.normalized() * 50
 		
 		move_and_slide()
 		
 
 func animated() -> void:
-	if velocity.x > 0:
-		animation.play("idle_left")
-	
-	if velocity.x < 0:
-		animation.play("idle_right")
-	
-	if velocity != Vector2.ZERO:
-		animation.play("idle_down")
+	if velocity.length() > 8:
+		state_machine.travel("Run")
 		return
 		
-	animation.play("idle_down")
+	state_machine.travel("idle")
+	pass
+func update_health() -> void:
+	is_dead = true
+	queue_free()

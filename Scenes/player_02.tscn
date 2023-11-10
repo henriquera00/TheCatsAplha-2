@@ -1,7 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://blaqd6pyy8xym"]
+[gd_scene load_steps=41 format=3 uid="uid://blaqd6pyy8xym"]
 
 [ext_resource type="Script" path="res://Script/player_02.gd" id="1_h4voj"]
-[ext_resource type="Texture2D" uid="uid://camqckqaoy5te" path="res://assents/character/gato.png" id="2_4rkti"]
+[ext_resource type="Texture2D" uid="uid://snppe2nt0weu" path="res://assents/character/gatinho.png" id="2_vou61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj38q"]
 size = Vector2(10, 4.66667)
@@ -297,6 +297,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 15.3333)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_on630"]
 resource_name = "Run_down"
@@ -366,6 +378,22 @@ tracks/0/keys = {
 "values": [6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_xuuqb"]
+resource_name = "dead"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.0901961, 0, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5s7e"]
 _data = {
 "Attack_down": SubResource("Animation_xhctq"),
@@ -380,7 +408,8 @@ _data = {
 "Run_down": SubResource("Animation_on630"),
 "Run_left": SubResource("Animation_3yfvx"),
 "Run_right": SubResource("Animation_brnvf"),
-"Run_up": SubResource("Animation_v2i3a")
+"Run_up": SubResource("Animation_v2i3a"),
+"dead": SubResource("Animation_xuuqb")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82a84"]
@@ -404,6 +433,28 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_8obji")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_is6aq")
 blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0l6y0"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ofd25"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_golfv"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nja4k"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_8sag6"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0l6y0")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ofd25")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_golfv")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_nja4k")
+blend_point_3/pos = Vector2(0, -0.9)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y5mal"]
 animation = &"Idle_up"
@@ -451,11 +502,13 @@ blend_point_3/pos = Vector2(1, 0)
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d0epq"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_43epp")
-states/Attack/position = Vector2(324, 145)
+states/Attack/position = Vector2(324, 132)
+states/Dead/node = SubResource("AnimationNodeBlendSpace2D_8sag6")
+states/Dead/position = Vector2(524, 91)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_r4phj")
-states/Idle/position = Vector2(335, 38)
+states/Idle/position = Vector2(335, 25)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_j8bs0")
-states/Run/position = Vector2(352, 87)
+states/Run/position = Vector2(352, 74)
 graph_offset = Vector2(-67, -18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_werav"]
@@ -472,7 +525,7 @@ position = Vector2(-3.97364e-08, 5.66667)
 shape = SubResource("RectangleShape2D_tj38q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4rkti")
+texture = ExtResource("2_vou61")
 hframes = 4
 vframes = 6
 
@@ -485,6 +538,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_d0epq")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(0, 0)
+parameters/Dead/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Run/blend_position = Vector2(0, 0)
 
@@ -502,6 +556,64 @@ limit_left = 0
 position = Vector2(0, 15.3333)
 shape = SubResource("RectangleShape2D_werav")
 disabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="health" type="ColorRect" parent="HUD"]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 70.0
+offset_bottom = 17.0
+scale = Vector2(3, 3)
+color = Color(0, 0, 0, 0.509804)
+
+[node name="bar" type="ColorRect" parent="HUD/health"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0, 0.133333, 1)
+
+[node name="bar2" type="ColorRect" parent="HUD/health"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 17.0
+offset_bottom = 8.0
+color = Color(1, 0, 0.133333, 1)
+
+[node name="bar3" type="ColorRect" parent="HUD/health"]
+layout_mode = 1
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 26.0
+offset_bottom = 8.0
+color = Color(1, 0, 0.133333, 1)
+
+[node name="bar4" type="ColorRect" parent="HUD/health"]
+layout_mode = 1
+offset_left = 28.0
+offset_top = 1.0
+offset_right = 35.0
+offset_bottom = 8.0
+color = Color(1, 0, 0.133333, 1)
+
+[node name="bar5" type="ColorRect" parent="HUD/health"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 8.0
+color = Color(1, 0, 0.133333, 1)
+
+[node name="bar6" type="ColorRect" parent="HUD/health"]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 1.0
+offset_right = 53.0
+offset_bottom = 8.0
+color = Color(1, 0, 0.133333, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="Attack_Area" to="." method="_on_attack_area_body_entered"]
