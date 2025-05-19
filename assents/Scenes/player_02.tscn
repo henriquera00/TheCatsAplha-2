@@ -1,10 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://blaqd6pyy8xym"]
+[gd_scene load_steps=42 format=3 uid="uid://blaqd6pyy8xym"]
 
 [ext_resource type="Script" path="res://Script/player_02.gd" id="1_h4voj"]
-[ext_resource type="Texture2D" uid="uid://snppe2nt0weu" path="res://assents/character/gatinho.png" id="2_vou61"]
+[ext_resource type="Texture2D" uid="uid://creidwd24i3gs" path="res://assents/character/gatinho corrigido.png" id="2_t808h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj38q"]
-size = Vector2(10, 4.66667)
+size = Vector2(14, 4.66667)
 
 [sub_resource type="Animation" id="Animation_xhctq"]
 resource_name = "Attack_down"
@@ -181,8 +181,9 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_d7qxv"]
 resource_name = "Idle_down"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -190,7 +191,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.265465),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -198,8 +199,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7loau"]
 resource_name = "Idle_left"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -207,7 +208,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.251348),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 9]
@@ -215,8 +216,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fwwfb"]
 resource_name = "Idle_right"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -224,7 +225,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.251348),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [12, 13]
@@ -232,8 +233,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_q1di0"]
 resource_name = "Idle_up"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -241,7 +242,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.251348),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [4, 5]
@@ -312,8 +313,8 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_on630"]
 resource_name = "Run_down"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -321,7 +322,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.255511),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 3]
@@ -329,8 +330,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_3yfvx"]
 resource_name = "Run_left"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -338,7 +339,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.19992, 0.330451),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [10, 9, 11]
@@ -346,8 +347,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_brnvf"]
 resource_name = "Run_right"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -355,7 +356,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.155511, 0.305471),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [14, 13, 15]
@@ -363,8 +364,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_v2i3a"]
 resource_name = "Run_up"
-length = 0.2
-loop_mode = 2
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -372,14 +373,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.24996),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_xuuqb"]
-resource_name = "dead"
+resource_name = "damage"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -409,7 +410,7 @@ _data = {
 "Run_left": SubResource("Animation_3yfvx"),
 "Run_right": SubResource("Animation_brnvf"),
 "Run_up": SubResource("Animation_v2i3a"),
-"dead": SubResource("Animation_xuuqb")
+"damage": SubResource("Animation_xuuqb")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82a84"]
@@ -435,16 +436,16 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_is6aq")
 blend_point_3/pos = Vector2(1, 0)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0l6y0"]
-animation = &"dead"
+animation = &"damage"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ofd25"]
-animation = &"dead"
+animation = &"damage"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_golfv"]
-animation = &"dead"
+animation = &"damage"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nja4k"]
-animation = &"dead"
+animation = &"damage"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_8sag6"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_0l6y0")
@@ -454,7 +455,7 @@ blend_point_1/pos = Vector2(0, 1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_golfv")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_nja4k")
-blend_point_3/pos = Vector2(0, -0.9)
+blend_point_3/pos = Vector2(0, -1)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y5mal"]
 animation = &"Idle_up"
@@ -503,29 +504,34 @@ blend_point_3/pos = Vector2(1, 0)
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d0epq"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_43epp")
 states/Attack/position = Vector2(324, 132)
-states/Dead/node = SubResource("AnimationNodeBlendSpace2D_8sag6")
-states/Dead/position = Vector2(524, 91)
+states/Damage/node = SubResource("AnimationNodeBlendSpace2D_8sag6")
+states/Damage/position = Vector2(524, 91)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_r4phj")
 states/Idle/position = Vector2(335, 25)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_j8bs0")
 states/Run/position = Vector2(352, 74)
 graph_offset = Vector2(-67, -18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38q3b"]
+size = Vector2(16, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_werav"]
 size = Vector2(15, 8.83333)
 
-[node name="Player02" type="CharacterBody2D" node_paths=PackedStringArray("attack_timer", "animationtree") groups=["Player"]]
+[node name="Player02" type="CharacterBody2D" node_paths=PackedStringArray("attack_timer", "regen_timer", "animationtree", "life") groups=["Player"]]
 script = ExtResource("1_h4voj")
 speed = 100.0
 attack_timer = NodePath("Timer")
+regen_timer = NodePath("Regen_delay")
 animationtree = NodePath("AnimationTree")
+life = NodePath("HUD/health/life")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.97364e-08, 5.66667)
+position = Vector2(0, 5.66667)
 shape = SubResource("RectangleShape2D_tj38q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vou61")
+texture = ExtResource("2_t808h")
 hframes = 4
 vframes = 6
 
@@ -538,7 +544,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_d0epq")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(0, 0)
-parameters/Dead/blend_position = Vector2(0, 0)
+parameters/Damage/blend_position = Vector2(0.137368, 8.46575)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Run/blend_position = Vector2(0, 0)
 
@@ -549,6 +555,13 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 limit_left = 0
+
+[node name="Damage_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Damage_Area"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_38q3b")
+debug_color = Color(0.828364, 0.377644, 0.316754, 0.42)
 
 [node name="Attack_Area" type="Area2D" parent="."]
 
@@ -567,53 +580,18 @@ offset_bottom = 17.0
 scale = Vector2(3, 3)
 color = Color(0, 0, 0, 0.509804)
 
-[node name="bar" type="ColorRect" parent="HUD/health"]
+[node name="life" type="ColorRect" parent="HUD/health"]
 layout_mode = 1
 offset_left = 1.0
-offset_top = 1.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(1, 0, 0.133333, 1)
-
-[node name="bar2" type="ColorRect" parent="HUD/health"]
-layout_mode = 1
-offset_left = 10.0
-offset_top = 1.0
-offset_right = 17.0
-offset_bottom = 8.0
-color = Color(1, 0, 0.133333, 1)
-
-[node name="bar3" type="ColorRect" parent="HUD/health"]
-layout_mode = 1
-offset_left = 19.0
-offset_top = 1.0
-offset_right = 26.0
-offset_bottom = 8.0
-color = Color(1, 0, 0.133333, 1)
-
-[node name="bar4" type="ColorRect" parent="HUD/health"]
-layout_mode = 1
-offset_left = 28.0
-offset_top = 1.0
-offset_right = 35.0
-offset_bottom = 8.0
-color = Color(1, 0, 0.133333, 1)
-
-[node name="bar5" type="ColorRect" parent="HUD/health"]
-layout_mode = 1
-offset_left = 37.0
-offset_top = 1.0
-offset_right = 44.0
-offset_bottom = 8.0
-color = Color(1, 0, 0.133333, 1)
-
-[node name="bar6" type="ColorRect" parent="HUD/health"]
-layout_mode = 1
-offset_left = 46.0
 offset_top = 1.0
 offset_right = 53.0
 offset_bottom = 8.0
 color = Color(1, 0, 0.133333, 1)
 
+[node name="Regen_delay" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="Damage_Area" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_entered" from="Attack_Area" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="Regen_delay" to="." method="_on_regen_delay_timeout"]

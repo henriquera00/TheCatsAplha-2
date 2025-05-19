@@ -3,14 +3,18 @@ extends CharacterBody2D
 var state_machine
 var in_attack: bool = false
 var is_damage:bool = false
+var is_dead: bool = false
 @export_category("Variables")
 @export var speed: float = 80.0
 @export var accel: float = 0.8
 @export var brake: float = 0.4
+@export var regen: float = 1
 
 @export_category("Objects")
 @export var attack_timer: Timer = null
+@export var regen_timer: Timer = null
 @export var animationtree: AnimationTree = null
+@export var life: ColorRect = null
 
 func _ready() -> void:
 	animationtree.active = true
@@ -77,6 +81,38 @@ func _on_attack_area_body_entered(body) -> void:
 		body.update_health()
 	pass # Replace with function body.
 
-
+func update_health() -> void:
+	#life.size.x -= 10
+	print("DANO")
+	pass
+	
+func recovery():
+	if life.size.x <= 52:
+		regen_timer.start()
+		pass
+	else:
+		print("Regeneração completa")
+	pass
 func _on_spawn_timer_timeout():
+	pass # Replace with function body.
+
+
+func _on_damage_area_body_entered(body) -> void:
+	if body.is_in_group("Enemy"):
+		life.size.x -= 10
+		if life.size.x > 0:
+			recovery()
+			print("Tomou dano! Trouxa!")
+		else:
+			is_dead = true
+			regen_timer.stop()
+			get_tree().reload_current_scene()
+			print("VOCÊ MORREU PATRÃO")
+	pass # Replace with function body.
+
+
+func _on_regen_delay_timeout():
+	life.size.x += regen
+	print("regenerou ", regen)
+	recovery()
 	pass # Replace with function body.

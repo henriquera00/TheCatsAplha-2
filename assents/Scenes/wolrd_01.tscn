@@ -1,16 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8mleiiucmwdc"]
 
 [ext_resource type="Texture2D" uid="uid://cruidl2c3vaqb" path="res://Tiles/Water.png" id="1_1hcdy"]
-[ext_resource type="PackedScene" uid="uid://bbk55gx5oe2rr" path="res://Scenes/tile_map.tscn" id="2_4q82g"]
-[ext_resource type="PackedScene" uid="uid://blaqd6pyy8xym" path="res://Scenes/player_02.tscn" id="4_gd27o"]
-[ext_resource type="PackedScene" uid="uid://c0if00lsu6hjr" path="res://Scenes/trees.tscn" id="4_xvo76"]
-[ext_resource type="PackedScene" uid="uid://83vno20f1xkb" path="res://Scenes/enemy_slime.tscn" id="5_d4imr"]
+[ext_resource type="PackedScene" uid="uid://bbk55gx5oe2rr" path="res://assents/Scenes/tile_map.tscn" id="2_4q82g"]
+[ext_resource type="PackedScene" uid="uid://blaqd6pyy8xym" path="res://assents/Scenes/player_02.tscn" id="4_gd27o"]
+[ext_resource type="PackedScene" uid="uid://c0if00lsu6hjr" path="res://assents/Scenes/trees.tscn" id="4_xvo76"]
+[ext_resource type="PackedScene" uid="uid://83vno20f1xkb" path="res://assents/Scenes/enemy_slime.tscn" id="5_d4imr"]
 
 [node name="wolrd01" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 646.0
+offset_left = -26.0
+offset_top = 31.0
+offset_right = 1126.0
+offset_bottom = 677.0
 texture = ExtResource("1_1hcdy")
 stretch_mode = 1
 

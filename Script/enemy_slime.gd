@@ -23,6 +23,7 @@ func _on_detection_body_entered(body) -> void:
 func _on_detection_body_exited(body):
 	if body.is_in_group("Player"):
 		player_ref = null
+
 	pass # Replace with function body.
 	
 	
@@ -43,21 +44,33 @@ func _physics_process(delta: float)-> void:
 				animationtree["parameters/idle/blend_position"] = direction
 				animationtree["parameters/Run/blend_position"] = direction
 		
-		if distance < 15:
-			get_tree().reload_current_scene()
+#		if distance < 15:
+#			get_tree().reload_current_scene()
 		
 		velocity = direction.normalized() * 50
 		
 		move_and_slide()
 		
 
+
+
+
 func animated() -> void:
 	if velocity.length() > 8:
 		state_machine.travel("Run")
 		return
-		
+	
+	animationtree["parameters/idle/blend_position"] = Vector2.DOWN
 	state_machine.travel("idle")
 	pass
+	
 func update_health() -> void:
 	is_dead = true
 	queue_free()
+
+
+func _on_damage_body_entered(body) -> void:
+	if body.is_in_group("Player"):
+		#body.update_health()
+		print("ENTROU")
+	pass # Replace with function body.

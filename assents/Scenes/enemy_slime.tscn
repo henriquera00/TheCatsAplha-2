@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://83vno20f1xkb"]
+[gd_scene load_steps=26 format=3 uid="uid://83vno20f1xkb"]
 
 [ext_resource type="Texture2D" uid="uid://b3hdnu3y8k6cq" path="res://assents/slimes_blue.png" id="1_rby7j"]
 [ext_resource type="Script" path="res://Script/enemy_slime.gd" id="1_ud4ly"]
@@ -160,11 +160,14 @@ states/Run/position = Vector2(449, 129)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_ip1v1")
 states/idle/position = Vector2(453, 77)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lguet"]
-radius = 20.025
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4avk"]
+radius = 26.675
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qota7"]
 radius = 198.21
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lguet"]
+radius = 20.0111
 
 [node name="Enemy_Slime" type="CharacterBody2D" node_paths=PackedStringArray("texture", "animation", "animationtree") groups=["Enemy"]]
 scale = Vector2(0.3, 0.3)
@@ -185,21 +188,29 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_jgvkn")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Run/blend_position = Vector2(0, 0)
 parameters/idle/blend_position = Vector2(0, 0)
+
+[node name="Body_Damage" type="Area2D" parent="."]
+position = Vector2(0, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body_Damage"]
+shape = SubResource("CircleShape2D_w4avk")
+debug_color = Color(0.601067, 0.54105, 0.126029, 0.42)
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_qota7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_lguet")
 
-[node name="Detection" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-visible = false
-shape = SubResource("CircleShape2D_qota7")
-
+[connection signal="body_entered" from="Body_Damage" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
