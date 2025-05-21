@@ -44,10 +44,10 @@ func mover() -> void:
 		return
 	
 		
-	velocity.x = lerp(velocity.x, direction.normalized().x * speed, brake)
-	velocity.y = lerp(velocity.y, direction.normalized().y * speed, brake)
+	velocity.x = lerp(velocity.x, 0.0, brake)
+	velocity.y = lerp(velocity.y, 0.0, brake)
 		
-	velocity = direction.normalized() * speed
+	#velocity = direction.normalized() * speed
 	
 func attack() -> void:
 	if Input.is_action_just_pressed("attack") and not in_attack:
@@ -55,6 +55,7 @@ func attack() -> void:
 		in_attack = true
 
 func animated() -> void:
+	
 	if is_damage:
 		state_machine.travel("Dead")
 		

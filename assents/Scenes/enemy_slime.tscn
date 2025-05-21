@@ -161,7 +161,7 @@ states/idle/node = SubResource("AnimationNodeBlendSpace2D_ip1v1")
 states/idle/position = Vector2(453, 77)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4avk"]
-radius = 26.965
+radius = 20.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qota7"]
 radius = 198.21
@@ -169,12 +169,14 @@ radius = 198.21
 [sub_resource type="CircleShape2D" id="CircleShape2D_lguet"]
 radius = 20.0111
 
-[node name="Enemy_Slime" type="CharacterBody2D" node_paths=PackedStringArray("texture", "animation", "animationtree", "life") groups=["Enemy"]]
+[node name="Enemy_Slime" type="CharacterBody2D" node_paths=PackedStringArray("texture", "animation", "animationtree", "Timer_Damage", "life") groups=["Enemy"]]
 scale = Vector2(0.3, 0.3)
+collision_mask = 2
 script = ExtResource("1_ud4ly")
 texture = NodePath("Sprite2D")
 animation = NodePath("AnimationPlayer")
 animationtree = NodePath("AnimationTree")
+Timer_Damage = NodePath("Timer_Damage")
 life = NodePath("lifebar/life")
 
 [node name="lifebar" type="ColorRect" parent="."]
@@ -213,7 +215,6 @@ parameters/idle/blend_position = Vector2(0, 0)
 position = Vector2(0, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body_Damage"]
-visible = false
 shape = SubResource("CircleShape2D_w4avk")
 debug_color = Color(0.601067, 0.54105, 0.126029, 0.42)
 
@@ -229,6 +230,11 @@ show_behind_parent = true
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_lguet")
 
+[node name="Timer_Damage" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Body_Damage" to="." method="_on_damage_body_entered"]
+[connection signal="body_exited" from="Body_Damage" to="." method="_on_body_damage_body_exited"]
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[connection signal="timeout" from="Timer_Damage" to="." method="_on_timer_damage_timeout"]
