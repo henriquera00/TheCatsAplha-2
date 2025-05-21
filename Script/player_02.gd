@@ -5,7 +5,7 @@ var in_attack: bool = false
 var is_damage:bool = false
 var is_dead: bool = false
 @export_category("Variables")
-@export var speed: float = 80.0
+@export var speed: float = 100.0
 @export var accel: float = 0.8
 @export var brake: float = 0.4
 @export var regen: float = 1.0
