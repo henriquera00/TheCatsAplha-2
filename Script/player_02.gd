@@ -91,6 +91,7 @@ func recovery():
 		regen_timer.start()
 		pass
 	else:
+		life.size.x = 52
 		print("Regeneração completa")
 	pass
 func _on_spawn_timer_timeout():

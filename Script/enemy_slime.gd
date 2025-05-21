@@ -5,10 +5,17 @@ var state_machine
 var player_ref = null
 var is_dead: bool = false
 
+@export_category("Variables")
+@export var speed: float = 40.0
+@export var accel: float = 0.4
+@export var brake: float = 0.2
+
+
 @export_category("Objects")
 @export var texture: Sprite2D = null
 @export var animation: AnimationPlayer = null
 @export var animationtree: AnimationTree = null
+@export var life: ColorRect = null
 
 func _ready() -> void:
 	animationtree.active = true
@@ -47,7 +54,8 @@ func _physics_process(delta: float)-> void:
 #		if distance < 15:
 #			get_tree().reload_current_scene()
 		
-		velocity = direction.normalized() * 50
+		velocity.x = lerp(velocity.x, direction.normalized().x * speed, accel)
+		velocity.y = lerp(velocity.y, direction.normalized().y * speed, accel)
 		
 		move_and_slide()
 		
@@ -65,12 +73,16 @@ func animated() -> void:
 	pass
 	
 func update_health() -> void:
-	is_dead = true
-	queue_free()
+	life.size.x -= 15
+	
+	if life.size.x <= 0: 
+		is_dead = true
+		queue_free()
+	pass
 
 
 func _on_damage_body_entered(body) -> void:
 	if body.is_in_group("Player"):
-		#body.update_health()
+		body.update_health()
 		print("ENTROU")
 	pass # Replace with function body.

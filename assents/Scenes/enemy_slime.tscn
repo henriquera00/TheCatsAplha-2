@@ -161,7 +161,7 @@ states/idle/node = SubResource("AnimationNodeBlendSpace2D_ip1v1")
 states/idle/position = Vector2(453, 77)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4avk"]
-radius = 26.675
+radius = 26.965
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qota7"]
 radius = 198.21
@@ -169,12 +169,27 @@ radius = 198.21
 [sub_resource type="CircleShape2D" id="CircleShape2D_lguet"]
 radius = 20.0111
 
-[node name="Enemy_Slime" type="CharacterBody2D" node_paths=PackedStringArray("texture", "animation", "animationtree") groups=["Enemy"]]
+[node name="Enemy_Slime" type="CharacterBody2D" node_paths=PackedStringArray("texture", "animation", "animationtree", "life") groups=["Enemy"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_ud4ly")
 texture = NodePath("Sprite2D")
 animation = NodePath("AnimationPlayer")
 animationtree = NodePath("AnimationTree")
+life = NodePath("lifebar/life")
+
+[node name="lifebar" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -23.3333
+offset_right = 20.0
+offset_bottom = -17.3333
+
+[node name="life" type="ColorRect" parent="lifebar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 39.0
+offset_bottom = 5.0
+color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rby7j")
@@ -198,15 +213,18 @@ parameters/idle/blend_position = Vector2(0, 0)
 position = Vector2(0, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body_Damage"]
+visible = false
 shape = SubResource("CircleShape2D_w4avk")
 debug_color = Color(0.601067, 0.54105, 0.126029, 0.42)
 
 [node name="Detection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+visible = false
 shape = SubResource("CircleShape2D_qota7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_lguet")
