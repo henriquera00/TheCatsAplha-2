@@ -8,7 +8,8 @@ var is_dead: bool = false
 @export var speed: float = 80.0
 @export var accel: float = 0.8
 @export var brake: float = 0.4
-@export var regen: float = 1
+@export var regen: float = 1.0
+@export var damage: float = 10.0
 
 @export_category("Objects")
 @export var attack_timer: Timer = null
@@ -76,20 +77,20 @@ func _on_attack_timer_timeout() -> void:
 	pass # Replace with function body.
 
 
+#Função para dar Dano ao inimigo, ao entrar na área de contato
 func _on_attack_area_body_entered(body) -> void:
 	if body.is_in_group("Enemy"):
-		body.update_health()
+		body.update_health(damage)
 	pass # Replace with function body.
 
-func update_health() -> void:
-	#life.size.x -= 10
+func update_health(damage) -> void:
+	life.size.x -= damage
 	print("DANO")
 	pass
 	
 func recovery():
 	if life.size.x <= 52:
 		regen_timer.start()
-		pass
 	else:
 		life.size.x = 52
 		print("Regeneração completa")
@@ -97,10 +98,10 @@ func recovery():
 func _on_spawn_timer_timeout():
 	pass # Replace with function body.
 
-
+#função que faz receber dano após inimigo entrar na área de dano
 func _on_damage_area_body_entered(body) -> void:
 	if body.is_in_group("Enemy"):
-		life.size.x -= 10
+		update_health(body.damage)
 		if life.size.x > 0:
 			recovery()
 			print("Tomou dano! Trouxa!")

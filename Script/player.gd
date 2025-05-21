@@ -7,6 +7,7 @@ var is_damage: bool = false
 @export var speed: float = 80.0
 @export var accel: float = 0.8
 @export var brake: float = 0.4
+@export var damage: float = 10.0
 
 @export_category("Objects")
 @export var attack_timer: Timer = null

@@ -9,7 +9,7 @@ var is_dead: bool = false
 @export var speed: float = 40.0
 @export var accel: float = 0.4
 @export var brake: float = 0.2
-
+@export var damage: float = 5.0
 
 @export_category("Objects")
 @export var texture: Sprite2D = null
@@ -72,8 +72,8 @@ func animated() -> void:
 	state_machine.travel("idle")
 	pass
 	
-func update_health() -> void:
-	life.size.x -= 15
+func update_health(damage: float) -> void:
+	life.size.x -= damage
 	
 	if life.size.x <= 0: 
 		is_dead = true
@@ -83,6 +83,6 @@ func update_health() -> void:
 
 func _on_damage_body_entered(body) -> void:
 	if body.is_in_group("Player"):
-		body.update_health()
+		body.update_health(damage)
 		print("ENTROU")
 	pass # Replace with function body.

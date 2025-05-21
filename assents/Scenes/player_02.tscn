@@ -513,7 +513,7 @@ states/Run/position = Vector2(352, 74)
 graph_offset = Vector2(-67, -18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38q3b"]
-size = Vector2(16, 25)
+size = Vector2(22, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_werav"]
 size = Vector2(15, 8.83333)
@@ -559,7 +559,7 @@ limit_left = 0
 [node name="Damage_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Damage_Area"]
-position = Vector2(0, -4.5)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_38q3b")
 debug_color = Color(0.828364, 0.377644, 0.316754, 0.42)
 
