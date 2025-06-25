@@ -84,6 +84,16 @@ func _on_attack_area_body_entered(body) -> void:
 func update_health(damage) -> void:
 	life.size.x -= damage
 	print("DANO")
+	
+	if life.size.x > 0:
+		recovery()
+		print("Tomou dano! Trouxa!")
+	else:
+		is_dead = true
+		regen_timer.stop()
+		get_tree().reload_current_scene()
+		print("VOCÊ MORREU PATRÃO")
+	
 	pass
 
 func recovery():
@@ -94,21 +104,10 @@ func recovery():
 		print("Regeneração completa")
 	pass
 
-func _on_spawn_timer_timeout():
-	pass # Replace with function body.
-
 #função que faz receber dano após inimigo entrar na área de dano
 func _on_damage_area_body_entered(body) -> void:
 	if body.is_in_group("Enemy"):
 		update_health(body.damage)
-		if life.size.x > 0:
-			recovery()
-			print("Tomou dano! Trouxa!")
-		else:
-			is_dead = true
-			regen_timer.stop()
-			get_tree().reload_current_scene()
-			print("VOCÊ MORREU PATRÃO")
 	pass # Replace with function body.
 
 func _on_regen_delay_timeout():

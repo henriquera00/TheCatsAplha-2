@@ -78,10 +78,10 @@ func update_health(damage: float) -> void:
 	pass
 
 func _on_damage_body_entered(body) -> void:
-	if body.is_in_group("Player"):
-		body.update_health(damage)
-		print("ENTROU")
-		Timer_Damage.start()
+	#if body.is_in_group("Player"):
+	#	body.update_health(damage)
+	#	print("ENTROU")
+	#	Timer_Damage.start()
 	pass # Replace with function body.
 
 func _on_body_damage_body_exited(body):
