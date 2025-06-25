@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://dkp7jukw717ky"]
 
-[ext_resource type="Script" path="res://Script/player.gd" id="1_krrx5"]
+[ext_resource type="Script" uid="uid://ckhdnl4q1d4dn" path="res://Script/player.gd" id="1_krrx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxcx4"]
 size = Vector2(14, 5)
@@ -694,19 +694,19 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_enpfd"]
 _data = {
-"Attack_Down": SubResource("Animation_hm2uk"),
-"Attack_Up": SubResource("Animation_1fb0v"),
-"Attack_left": SubResource("Animation_cnrfw"),
-"Attack_right": SubResource("Animation_pt2xt"),
-"RESET": SubResource("Animation_g7hvc"),
-"idle_back": SubResource("Animation_85yn6"),
-"idle_down": SubResource("Animation_3um77"),
-"idle_left": SubResource("Animation_kooqb"),
-"idle_right": SubResource("Animation_0ds1o"),
-"run_back": SubResource("Animation_jgfaj"),
-"run_down": SubResource("Animation_ekqci"),
-"run_left": SubResource("Animation_bf236"),
-"run_right": SubResource("Animation_o868o")
+&"Attack_Down": SubResource("Animation_hm2uk"),
+&"Attack_Up": SubResource("Animation_1fb0v"),
+&"Attack_left": SubResource("Animation_cnrfw"),
+&"Attack_right": SubResource("Animation_pt2xt"),
+&"RESET": SubResource("Animation_g7hvc"),
+&"idle_back": SubResource("Animation_85yn6"),
+&"idle_down": SubResource("Animation_3um77"),
+&"idle_left": SubResource("Animation_kooqb"),
+&"idle_right": SubResource("Animation_0ds1o"),
+&"run_back": SubResource("Animation_jgfaj"),
+&"run_down": SubResource("Animation_ekqci"),
+&"run_left": SubResource("Animation_bf236"),
+&"run_right": SubResource("Animation_o868o")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y2gms"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://blaqd6pyy8xym"]
 
-[ext_resource type="Script" path="res://Script/player_02.gd" id="1_h4voj"]
+[ext_resource type="Script" uid="uid://dlhbuetdw7uoe" path="res://Script/player_02.gd" id="1_h4voj"]
 [ext_resource type="Texture2D" uid="uid://creidwd24i3gs" path="res://assents/character/gatinho corrigido.png" id="2_t808h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj38q"]
@@ -397,20 +397,20 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5s7e"]
 _data = {
-"Attack_down": SubResource("Animation_xhctq"),
-"Attack_left": SubResource("Animation_gxadr"),
-"Attack_right": SubResource("Animation_1rmmq"),
-"Attack_up": SubResource("Animation_ebahq"),
-"Idle_down": SubResource("Animation_d7qxv"),
-"Idle_left": SubResource("Animation_7loau"),
-"Idle_right": SubResource("Animation_fwwfb"),
-"Idle_up": SubResource("Animation_q1di0"),
-"RESET": SubResource("Animation_k4d81"),
-"Run_down": SubResource("Animation_on630"),
-"Run_left": SubResource("Animation_3yfvx"),
-"Run_right": SubResource("Animation_brnvf"),
-"Run_up": SubResource("Animation_v2i3a"),
-"damage": SubResource("Animation_xuuqb")
+&"Attack_down": SubResource("Animation_xhctq"),
+&"Attack_left": SubResource("Animation_gxadr"),
+&"Attack_right": SubResource("Animation_1rmmq"),
+&"Attack_up": SubResource("Animation_ebahq"),
+&"Idle_down": SubResource("Animation_d7qxv"),
+&"Idle_left": SubResource("Animation_7loau"),
+&"Idle_right": SubResource("Animation_fwwfb"),
+&"Idle_up": SubResource("Animation_q1di0"),
+&"RESET": SubResource("Animation_k4d81"),
+&"Run_down": SubResource("Animation_on630"),
+&"Run_left": SubResource("Animation_3yfvx"),
+&"Run_right": SubResource("Animation_brnvf"),
+&"Run_up": SubResource("Animation_v2i3a"),
+&"damage": SubResource("Animation_xuuqb")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82a84"]
@@ -536,7 +536,7 @@ vframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_x5s7e")
+&"": SubResource("AnimationLibrary_x5s7e")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
