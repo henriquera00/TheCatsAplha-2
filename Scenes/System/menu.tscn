@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://uyhxfoo5vra3"]
+[gd_scene load_steps=9 format=3 uid="uid://uyhxfoo5vra3"]
 
 [ext_resource type="Texture2D" uid="uid://bscaox5f7qrut" path="res://assents/menu/Jogo_Gatos_Henriquera_Desenho.png" id="1_45m51"]
+[ext_resource type="Texture2D" uid="uid://ph22a1g6fglu" path="res://assents/menu/Botão Jogar -  Normal.png" id="2_rhqsu"]
 [ext_resource type="Texture2D" uid="uid://c0lhikg2fvmv6" path="res://assents/menu/Botao_Menu_01.png" id="2_wo71q"]
 [ext_resource type="Texture2D" uid="uid://c08kaw1s2awrf" path="res://assents/menu/Botao_Menu_01_Pressed.png" id="3_frsf6"]
+[ext_resource type="Texture2D" uid="uid://b6kgxqvfitoa3" path="res://assents/menu/Botão Jogar -  Pressed.png" id="3_idwdv"]
+[ext_resource type="Texture2D" uid="uid://cy4osafto0uqv" path="res://assents/menu/Botão Jogar -  Hover.png" id="4_8ihty"]
 [ext_resource type="Texture2D" uid="uid://co42d2yut5h7a" path="res://assents/menu/Botao_Menu_01_Hover.png" id="4_rhqsu"]
+
+[sub_resource type="Theme" id="Theme_26grh"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -33,9 +38,10 @@ scale = Vector2(0.68, 0.68)
 [node name="Jogar" type="TextureButton" parent="Box_Botões"]
 layout_mode = 2
 tooltip_text = "JOGAR"
-texture_normal = ExtResource("2_wo71q")
-texture_pressed = ExtResource("3_frsf6")
-texture_hover = ExtResource("4_rhqsu")
+theme = SubResource("Theme_26grh")
+texture_normal = ExtResource("2_rhqsu")
+texture_pressed = ExtResource("3_idwdv")
+texture_hover = ExtResource("4_8ihty")
 
 [node name="Créditos" type="TextureButton" parent="Box_Botões"]
 layout_mode = 2
