@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy4osafto0uqv"
-path="res://.godot/imported/Botão Jogar -  Hover.png-8f2f7e6de5b711365bf6a91c08a7faac.ctex"
+uid="uid://bl1otrbx00mho"
+path="res://.godot/imported/Botão Controles -  Pressed.png-d045673024cd4558fde1624f583da743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/menu/Botão Jogar -  Hover.png"
-dest_files=["res://.godot/imported/Botão Jogar -  Hover.png-8f2f7e6de5b711365bf6a91c08a7faac.ctex"]
+source_file="res://assents/menu/Botões Menu/Botão Controles -  Pressed.png"
+dest_files=["res://.godot/imported/Botão Controles -  Pressed.png-d045673024cd4558fde1624f583da743.ctex"]
 
 [params]
 

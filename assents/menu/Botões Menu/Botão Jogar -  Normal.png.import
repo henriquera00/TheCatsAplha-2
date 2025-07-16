@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6kgxqvfitoa3"
-path="res://.godot/imported/Botão Jogar -  Pressed.png-af85f157fb8d8ce70db828b3b10e7a1d.ctex"
+uid="uid://dcnsnfydtac8n"
+path="res://.godot/imported/Botão Jogar -  Normal.png-cc7067c31ab26c0b217cdfad54cea8af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assents/menu/Botão Jogar -  Pressed.png"
-dest_files=["res://.godot/imported/Botão Jogar -  Pressed.png-af85f157fb8d8ce70db828b3b10e7a1d.ctex"]
+source_file="res://assents/menu/Botões Menu/Botão Jogar -  Normal.png"
+dest_files=["res://.godot/imported/Botão Jogar -  Normal.png-cc7067c31ab26c0b217cdfad54cea8af.ctex"]
 
 [params]
 
