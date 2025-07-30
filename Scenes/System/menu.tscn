@@ -55,19 +55,19 @@ texture_normal = ExtResource("3_o8irj")
 texture_pressed = ExtResource("4_tbh7h")
 texture_hover = ExtResource("5_1yopd")
 
-[node name="JOGAR" type="TextureButton" parent="Box_Botões"]
+[node name="CREDITOS" type="TextureButton" parent="Box_Botões"]
 layout_mode = 2
-tooltip_text = "JOGAR"
+tooltip_text = "CREDITOS"
 texture_normal = ExtResource("6_55qh7")
 texture_pressed = ExtResource("7_o8irj")
 texture_hover = ExtResource("8_pcdc4")
 
 [node name="Controles" type="TextureButton" parent="Box_Botões"]
 layout_mode = 2
-tooltip_text = "JOGAR"
+tooltip_text = "CONTROLES"
 texture_normal = ExtResource("9_2f841")
 texture_pressed = ExtResource("7_82xov")
 texture_hover = ExtResource("10_jktjj")
 
 [connection signal="pressed" from="Box_Botões/Jogar" to="." method="_on_jogar_pressed"]
-[connection signal="pressed" from="Box_Botões/JOGAR" to="." method="_on_créditos_pressed"]
+[connection signal="pressed" from="Box_Botões/CREDITOS" to="." method="_on_créditos_pressed"]
