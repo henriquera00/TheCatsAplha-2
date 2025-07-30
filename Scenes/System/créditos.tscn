@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://rj4nkqp8yl11"]
+
+[ext_resource type="FontFile" uid="uid://c38xx3f7drcpa" path="res://assents/Fonts/RETROTECH.ttf" id="1_1idt4"]
+[ext_resource type="Texture2D" uid="uid://8tlviq65im35" path="res://assents/creators/henrique.png" id="2_my8tw"]
+[ext_resource type="Texture2D" uid="uid://cnajgahrj654r" path="res://assents/creators/nathy_lys.png" id="3_kusac"]
+[ext_resource type="Texture2D" uid="uid://bp537kpri7ym" path="res://assents/menu/Botões Menu/Botão Voltar -  Normal.png" id="4_jxo4i"]
+[ext_resource type="Texture2D" uid="uid://d1hhnej8numrx" path="res://assents/menu/Botões Menu/Botão Voltar -  Pressed.png" id="5_sdr7m"]
+[ext_resource type="Texture2D" uid="uid://2g8wbbss6y1g" path="res://assents/menu/Botões Menu/Botão Voltar -  Hover.png" id="6_ikc8o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxo4i"]
+font = ExtResource("1_1idt4")
+font_size = 50
+font_color = Color(1, 0, 1, 1)
+outline_size = 9
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.419608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdr7m"]
+font = ExtResource("1_1idt4")
+font_size = 30
+font_color = Color(0, 0, 1, 1)
+outline_size = 4
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.419608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikc8o"]
+font = ExtResource("1_1idt4")
+font_size = 30
+font_color = Color(0, 0, 1, 1)
+outline_size = 6
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.419608)
+
+[node name="Créditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg_Color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.498039, 1, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = -21.0
+offset_right = 155.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Creditos"
+label_settings = SubResource("LabelSettings_jxo4i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Henriquera" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Programador e Game Design: 
+Henriquera"
+label_settings = SubResource("LabelSettings_sdr7m")
+
+[node name="Nathy Lys" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Artista 2D: Nathy__Lys"
+label_settings = SubResource("LabelSettings_ikc8o")
+
+[node name="NathyLys" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(-174.5, 236.5)
+scale = Vector2(0.653361, 0.653361)
+texture = ExtResource("3_kusac")
+flip_h = true
+
+[node name="Henrique" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(631.5, 216.5)
+scale = Vector2(0.702, 0.702)
+texture = ExtResource("2_my8tw")
+
+[node name="Voltar" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 483.0
+offset_top = 450.0
+offset_right = 1143.0
+offset_bottom = 546.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("4_jxo4i")
+texture_pressed = ExtResource("5_sdr7m")
+texture_hover = ExtResource("6_ikc8o")
