@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://rj4nkqp8yl11"]
+[gd_scene load_steps=11 format=3 uid="uid://rj4nkqp8yl11"]
 
 [ext_resource type="FontFile" uid="uid://c38xx3f7drcpa" path="res://assents/Fonts/RETROTECH.ttf" id="1_1idt4"]
+[ext_resource type="Script" uid="uid://bt2f1j84ckvck" path="res://Scenes/System/créditos.gd" id="1_sdr7m"]
 [ext_resource type="Texture2D" uid="uid://8tlviq65im35" path="res://assents/creators/henrique.png" id="2_my8tw"]
 [ext_resource type="Texture2D" uid="uid://cnajgahrj654r" path="res://assents/creators/nathy_lys.png" id="3_kusac"]
 [ext_resource type="Texture2D" uid="uid://bp537kpri7ym" path="res://assents/menu/Botões Menu/Botão Voltar -  Normal.png" id="4_jxo4i"]
@@ -19,7 +20,7 @@ shadow_color = Color(0, 0, 0, 0.419608)
 font = ExtResource("1_1idt4")
 font_size = 30
 font_color = Color(0, 0, 1, 1)
-outline_size = 4
+outline_size = 6
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.419608)
 
@@ -38,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sdr7m")
 
 [node name="Bg_Color" type="ColorRect" parent="."]
 layout_mode = 1
@@ -77,7 +79,8 @@ label_settings = SubResource("LabelSettings_sdr7m")
 
 [node name="Nathy Lys" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Artista 2D: Nathy__Lys"
+text = "Artista 2D: 
+Nathy__Lys"
 label_settings = SubResource("LabelSettings_ikc8o")
 
 [node name="NathyLys" type="Sprite2D" parent="VBoxContainer"]
@@ -92,6 +95,7 @@ scale = Vector2(0.702, 0.702)
 texture = ExtResource("2_my8tw")
 
 [node name="Voltar" type="TextureButton" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 483.0
 offset_top = 450.0
@@ -101,3 +105,5 @@ scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("4_jxo4i")
 texture_pressed = ExtResource("5_sdr7m")
 texture_hover = ExtResource("6_ikc8o")
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
