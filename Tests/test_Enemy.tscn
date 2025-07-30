@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c46uhixkd4f52"]
+
+[ext_resource type="Script" uid="uid://k3psk7bjh8pk" path="res://addons/gut/test.gd" id="1_ii83b"]
+[ext_resource type="PackedScene" uid="uid://m28heqtswbuq" path="res://addons/gut/GutScene.tscn" id="2_qt3xh"]
+
+[node name="GutTest" type="Node"]
+script = ExtResource("1_ii83b")
+metadata/_custom_type_script = "uid://k3psk7bjh8pk"
+
+[node name="GutScene" parent="." instance=ExtResource("2_qt3xh")]

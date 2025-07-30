@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsgj7dgo2rgtc"]
 
-[ext_resource type="PackedScene" uid="uid://m28heqtswbuq" path="res://addons/gut/GutScene.tscn" id="2_f8onp"]
+[ext_resource type="PackedScene" uid="uid://m28heqtswbuq" path="res://addons/gut/GutScene.tscn" id="1_0funi"]
 
 [sub_resource type="GDScript" id="GDScript_xuo22"]
 script/source = "extends GutTest
@@ -24,4 +24,4 @@ func test_update_health_reduces_life():
 script = SubResource("GDScript_xuo22")
 metadata/_custom_type_script = "uid://k3psk7bjh8pk"
 
-[node name="GutScene" parent="." instance=ExtResource("2_f8onp")]
+[node name="GutScene" parent="." instance=ExtResource("1_0funi")]
