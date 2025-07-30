@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://rj4nkqp8yl11"]
 
 [ext_resource type="FontFile" uid="uid://c38xx3f7drcpa" path="res://assents/Fonts/RETROTECH.ttf" id="1_1idt4"]
-[ext_resource type="Script" uid="uid://bt2f1j84ckvck" path="res://Scenes/System/créditos.gd" id="1_sdr7m"]
+[ext_resource type="Script" uid="uid://bt2f1j84ckvck" path="res://Script/créditos.gd" id="1_sdr7m"]
 [ext_resource type="Texture2D" uid="uid://8tlviq65im35" path="res://assents/creators/henrique.png" id="2_my8tw"]
 [ext_resource type="Texture2D" uid="uid://cnajgahrj654r" path="res://assents/creators/nathy_lys.png" id="3_kusac"]
 [ext_resource type="Texture2D" uid="uid://bp537kpri7ym" path="res://assents/menu/Botões Menu/Botão Voltar -  Normal.png" id="4_jxo4i"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://blaqd6pyy8xym"]
+[gd_scene load_steps=43 format=3 uid="uid://blaqd6pyy8xym"]
 
 [ext_resource type="Script" uid="uid://dlhbuetdw7uoe" path="res://Script/player_02.gd" id="1_h4voj"]
 [ext_resource type="Texture2D" uid="uid://creidwd24i3gs" path="res://assents/character/gatinho corrigido.png" id="2_t808h"]
+[ext_resource type="PackedScene" uid="uid://dj6poj6fim8h1" path="res://Scenes/System/pause.tscn" id="3_org20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj38q"]
 size = Vector2(14, 4.66667)
@@ -589,6 +590,8 @@ color = Color(1, 0, 0.133333, 1)
 
 [node name="Regen_delay" type="Timer" parent="."]
 one_shot = true
+
+[node name="pause" parent="." instance=ExtResource("3_org20")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="Damage_Area" to="." method="_on_damage_area_body_entered"]

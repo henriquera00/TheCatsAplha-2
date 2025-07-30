@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj6poj6fim8h1"]
+
+[ext_resource type="Script" uid="uid://crdfi8h1w7j18" path="res://Script/dead_menu.gd" id="1_1tfbw"]
+[ext_resource type="Shader" uid="uid://7kyd6a1h6a66" path="res://Scenes/System/dead_menu.gdshader" id="2_d50cd"]
+[ext_resource type="FontFile" uid="uid://cjru8c1dgj7hj" path="res://assents/Fonts/ARCADECLASSIC.TTF" id="3_slxnx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p70k1"]
+shader = ExtResource("2_d50cd")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Theme" id="Theme_scrlm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3nib"]
+font = ExtResource("3_slxnx")
+font_size = 30
+font_color = Color(0.81201, 0.373461, 0.144597, 1)
+outline_size = 3
+outline_color = Color(0.12549, 0.164706, 0.196078, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
+shadow_offset = Vector2(-1.86, 2.9)
+
+[sub_resource type="Animation" id="Animation_12j6c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_82kig"]
+resource_name = "pause_game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmi3g"]
+_data = {
+&"RESET": SubResource("Animation_12j6c"),
+&"pause_game": SubResource("Animation_82kig")
+}
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1tfbw")
+
+[node name="bg_dead_menu" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_p70k1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_holder" type="VBoxContainer" parent="bg_dead_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -34.0
+offset_right = 48.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_scrlm")
+
+[node name="Label" type="Label" parent="bg_dead_menu/menu_holder"]
+layout_mode = 2
+text = "GAME PAUSE"
+label_settings = SubResource("LabelSettings_y3nib")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Return" type="Button" parent="bg_dead_menu/menu_holder"]
+layout_mode = 2
+text = "RETURN"
+
+[node name="Restart" type="Button" parent="bg_dead_menu/menu_holder"]
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="Exit" type="Button" parent="bg_dead_menu/menu_holder"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="Animator" type="AnimationPlayer" parent="bg_dead_menu"]
+libraries = {
+&"": SubResource("AnimationLibrary_vmi3g")
+}
+
+[connection signal="pressed" from="bg_dead_menu/menu_holder/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="bg_dead_menu/menu_holder/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="bg_dead_menu/menu_holder/Exit" to="." method="_on_exit_pressed"]

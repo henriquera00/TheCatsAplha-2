@@ -17,11 +17,13 @@ var is_dead: bool = false
 @export var regen_timer: Timer = null
 @export var animationtree: AnimationTree = null
 @export var life: ColorRect = null
+@onready var pause = $pause
 
 func _ready() -> void:
 	animationtree.active = true
 	state_machine = animationtree["parameters/playback"]
-
+	state_machine.travel("Idle")
+	
 func _physics_process(_delta: float) -> void:
 	mover()
 	animated()
@@ -33,7 +35,11 @@ func mover() -> void:
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down")
 	)
-
+	
+	if Input.is_action_just_pressed("pause"):
+		pause.animated()
+	
+	
 	if direction != Vector2.ZERO:
 		animationtree["parameters/Attack/blend_position"] = direction
 		animationtree["parameters/Idle/blend_position"] = direction
