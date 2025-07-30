@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7qcl8i1heo58"]
+[gd_scene load_steps=2 format=3 uid="uid://b02iqq8t31luk"]
 
-[ext_resource type="Script" uid="uid://cluim5gn7t2t4" path="res://Tests/test.gd" id="1_l4l0n"]
+[sub_resource type="GDScript" id="GDScript_n0yj3"]
+script/source = "extends GutTest
+
+var player
+
+# Executado antes de cada teste
+func before_each():
+	# Carrega a cena de teste do player
+	var player_scene = load(\"res://player/player_02.tscn\")
+	player = player_scene.instantiate()
+	add_child(player)
+
+func test_update_health_reduces_life():
+	player.life.size.x = 100  # Define vida inicial
+	player.update_health(25)  # Aplica dano
+	assert_eq(player.life.size.x, 75, \"A vida deveria ser reduzida para 75\")
+"
 
 [node name="Node" type="Node"]
-script = ExtResource("1_l4l0n")
+script = SubResource("GDScript_n0yj3")
