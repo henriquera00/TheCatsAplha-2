@@ -2,6 +2,7 @@ extends GutTest
 
 var player
 var enemy
+
 # Executado antes de cada teste
 func before_each():
 	# Carrega a cena de teste do player
