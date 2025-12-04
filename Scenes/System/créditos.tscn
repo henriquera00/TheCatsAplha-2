@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://rj4nkqp8yl11"]
+[gd_scene load_steps=12 format=3 uid="uid://rj4nkqp8yl11"]
 
 [ext_resource type="FontFile" uid="uid://c38xx3f7drcpa" path="res://assents/Fonts/RETROTECH.ttf" id="1_1idt4"]
 [ext_resource type="Script" uid="uid://bt2f1j84ckvck" path="res://Script/créditos.gd" id="1_sdr7m"]
+[ext_resource type="Texture2D" uid="uid://dcdpjp8hynfjq" path="res://assents/System/bg_creators.png" id="2_ikc8o"]
 [ext_resource type="Texture2D" uid="uid://8tlviq65im35" path="res://assents/creators/henrique.png" id="2_my8tw"]
 [ext_resource type="Texture2D" uid="uid://cnajgahrj654r" path="res://assents/creators/nathy_lys.png" id="3_kusac"]
 [ext_resource type="Texture2D" uid="uid://bp537kpri7ym" path="res://assents/menu/Botões Menu/Botão Voltar -  Normal.png" id="4_jxo4i"]
@@ -27,7 +28,7 @@ shadow_color = Color(0, 0, 0, 0.419608)
 [sub_resource type="LabelSettings" id="LabelSettings_ikc8o"]
 font = ExtResource("1_1idt4")
 font_size = 30
-font_color = Color(0, 0, 1, 1)
+font_color = Color(0.490439, 0.0423874, 0.669085, 1)
 outline_size = 6
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.419608)
@@ -41,6 +42,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sdr7m")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -46.0
+offset_top = -23.0
+offset_right = 1234.0
+offset_bottom = 697.0
+texture = ExtResource("2_ikc8o")
+
 [node name="Bg_Color" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -48,7 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.498039, 1, 1, 1)
+color = Color(0, 0, 0, 0.462745)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -82,15 +91,17 @@ layout_mode = 2
 text = "Artista 2D: 
 Nathy__Lys"
 label_settings = SubResource("LabelSettings_ikc8o")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="NathyLys" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(-174.5, 236.5)
+position = Vector2(-192.5, 249)
 scale = Vector2(0.653361, 0.653361)
 texture = ExtResource("3_kusac")
 flip_h = true
 
 [node name="Henrique" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(631.5, 216.5)
+position = Vector2(645.5, 229)
 scale = Vector2(0.702, 0.702)
 texture = ExtResource("2_my8tw")
 

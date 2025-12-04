@@ -36,8 +36,8 @@ func mover() -> void:
 		Input.get_axis("ui_up", "ui_down")
 	)
 	
-	if Input.is_action_just_pressed("pause"):
-		pause.animated()
+	#if Input.is_action_just_pressed("pause"):
+	#	pause.animated()
 	
 	
 	if direction != Vector2.ZERO:

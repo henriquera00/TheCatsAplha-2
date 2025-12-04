@@ -806,13 +806,12 @@ zoom = Vector2(4, 4)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_enpfd")
+&"": SubResource("AnimationLibrary_enpfd")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_4dcu2")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Run/blend_position = Vector2(0, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dj6poj6fim8h1"]
 
-[ext_resource type="Script" uid="uid://crdfi8h1w7j18" path="res://Script/dead_menu.gd" id="1_1tfbw"]
+[ext_resource type="Script" uid="uid://crdfi8h1w7j18" path="res://Script/pause.gd" id="1_1tfbw"]
 [ext_resource type="Shader" uid="uid://7kyd6a1h6a66" path="res://Scenes/System/dead_menu.gdshader" id="2_d50cd"]
 [ext_resource type="FontFile" uid="uid://cjru8c1dgj7hj" path="res://assents/Fonts/ARCADECLASSIC.TTF" id="3_slxnx"]
 

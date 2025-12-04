@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_jogar_pressed():
-	get_tree().change_scene_to_file("res://Scenes/world_01.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Worlds/world_01.tscn")
 	pass # Replace with function body.
 
 

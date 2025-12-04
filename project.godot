@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/codecapture/plugin.cfg", "res://addons/gut/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Script/": "green"
+}
+
 [input]
 
 attack={
