@@ -36,10 +36,6 @@ func mover() -> void:
 		Input.get_axis("ui_up", "ui_down")
 	)
 	
-	#if Input.is_action_just_pressed("pause"):
-	#	pause.animated()
-	
-	
 	if direction != Vector2.ZERO:
 		animationtree["parameters/Attack/blend_position"] = direction
 		animationtree["parameters/Idle/blend_position"] = direction
